@@ -1,5 +1,6 @@
 void main(List<String> args) {
   
+  print("-----------------Lists-------------------");
   // a normal fixed-size list and printed out using a for-loop
   var myList = new List(5);
   myList[0] = "Dog";
@@ -36,6 +37,20 @@ void main(List<String> args) {
     var j = i+1;
     print("$j. " + growingList[i]);
   }
+  print("\n-----------------Maps-------------------");
 
-  
+  var epicMap = {"Key1":456, "Key2":"SomeValue"};
+
+  // Had to convert the map into a String because it won't read them as one line
+  print("\n" + epicMap.toString());
+  print("This is the contents of Key2: " + epicMap["Key2"]);
+
+  var image = {
+    "tags" : "US president",
+    "url" : "www.stockphotos.com",
+    "resolution" : "1920x1080p"
+  };
+
+  print("\n" + image.toString());
+  print("Source of image: " + image["url"]);
 }
