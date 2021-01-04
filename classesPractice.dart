@@ -1,5 +1,8 @@
 void main(List<String> args) {
   
+  Car myCar = new Car.withData("2000", "Honda", "Civic", "ASD-123");
+  
+  print(myCar.getCarData());
 }
 
 class Car{
@@ -16,7 +19,11 @@ class Car{
 
   }
 
-  Car(this.yearBuilt, this.brand, this.model, this.plateNum){
+  Car.withData(yearBuilt, brand, model, plateNum){
+    this.yearBuilt = yearBuilt;
+    this.brand = brand;
+    this.model = model;
+    this.plateNum = plateNum;
     engineStatus = "off";
   }
 
@@ -78,5 +85,9 @@ class Car{
     else{
       print("Car engine is already off");
     }
+  }
+
+  getCarData(){
+    return "$yearBuilt $brand $model $plateNum";
   }
 }
