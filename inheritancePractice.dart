@@ -1,7 +1,7 @@
 void main(List<String> args) {
 
   DateTime mySpacecraftLaunchDate = new DateTime(1995, 04, 22);
-  Spacecraft mySpacecraft = new Spacecraft("International Space Station", mySpacecraftLaunchDate);
+  Spacecraft mySpacecraft = new Spacecraft("International Space Station", mySpacecraftLaunchDate, 100);
 
   mySpacecraft.showSpacecraftData();
 }
@@ -12,14 +12,16 @@ class Spacecraft{
   DateTime launchDate;
   double totalNetWeight;
 
-  Spacecraft(String name, DateTime launchDate){
+  Spacecraft(String name, DateTime launchDate, double totalNetWeight){
     this.name = name;
     this.launchDate = launchDate;
+    this.totalNetWeight = totalNetWeight;
   }
 
-  Spacecraft.unlaunched(String name){
+  Spacecraft.unlaunched(String name, double totalNetWeight){
     this.name = name;
     this.launchDate = null;
+    this.totalNetWeight = totalNetWeight;
   }
 
   void setName(String name){
@@ -28,6 +30,10 @@ class Spacecraft{
 
   void setLaunchDate(DateTime launchDate){
     this.launchDate = launchDate;
+  }
+
+  void setTotalNetWeight(double totalNetWeight){
+    this.totalNetWeight = totalNetWeight;
   }
 
   String getName(){
@@ -42,6 +48,10 @@ class Spacecraft{
     return launchDate?.year;
   }
 
+  double getTotalNetWeight(){
+    return totalNetWeight;
+  }
+
   void showSpacecraftData(){
 
     print("Spacecraft: $name");
@@ -54,5 +64,6 @@ class Spacecraft{
     else{
       print("Unlaunched");;
     }
+    print("Total Net Weight: ${getTotalNetWeight()} tons");
   }
 }
